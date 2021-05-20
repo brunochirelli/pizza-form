@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "stylelint-config-styled-components",
+    "stylelint-config-rational-order"
+  ]
+}

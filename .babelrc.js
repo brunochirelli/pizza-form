@@ -13,6 +13,7 @@ const plugins = [
         preventFullImport: true,
       },
     },
+    "babel-plugin-styled-components",
   ],
 ];
 
