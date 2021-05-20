@@ -1,0 +1,325 @@
+{
+  "products": {
+    "pizzas": [
+      {
+        "id": 0,
+        "name": "Bauru",
+        "price": 20,
+        "description": "Mussarela, presunto, requeijão, oregano e tomate.",
+        "featured": true,
+        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZBU.jpg",
+        "ingredients": [
+          {
+            "id": 0,
+            "name": "Queijo",
+            "check": true
+          },
+          {
+            "id": 1,
+            "name": "Ervilha",
+            "check": true
+          },
+          {
+            "id": 2,
+            "name": "Milho",
+            "check": true
+          }
+        ],
+        "extras": [
+          {
+            "id": 0,
+            "name": "Bacon",
+            "check": false
+          },
+          {
+            "id": 1,
+            "name": "Catupiry",
+            "check": false
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Calabresa",
+        "price": 20,
+        "description": "Mussarela, calabresa e cebola, oregano.",
+        "featured": false,
+        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZBU.jpg",
+        "ingredients": [
+          {
+            "id": 0,
+            "name": "Queijo",
+            "check": true
+          },
+          {
+            "id": 1,
+            "name": "Ervilha",
+            "check": true
+          },
+          {
+            "id": 2,
+            "name": "Milho",
+            "check": true
+          }
+        ],
+        "extras": [
+          {
+            "id": 0,
+            "name": "Bacon",
+            "check": false
+          },
+          {
+            "id": 1,
+            "name": "Catupiry",
+            "check": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Mussarela",
+        "price": 20,
+        "description": "Queijo mussarela e oregano.",
+        "featured": false,
+        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZMUS.jpg",
+        "ingredients": [
+          {
+            "id": 0,
+            "name": "Queijo",
+            "check": true
+          },
+          {
+            "id": 1,
+            "name": "Ervilha",
+            "check": true
+          },
+          {
+            "id": 2,
+            "name": "Milho",
+            "check": true
+          }
+        ],
+        "extras": [
+          {
+            "id": 0,
+            "name": "Bacon",
+            "check": false
+          },
+          {
+            "id": 1,
+            "name": "Catupiry",
+            "check": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Catuperoni",
+        "price": 20,
+        "description": "Mussarela, pepperoni, requeijão, oregano e parmesão ralado.",
+        "featured": false,
+        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZCU.jpg",
+        "ingredients": [
+          {
+            "id": 0,
+            "name": "Queijo",
+            "check": true
+          },
+          {
+            "id": 1,
+            "name": "Ervilha",
+            "check": true
+          },
+          {
+            "id": 2,
+            "name": "Milho",
+            "check": true
+          }
+        ],
+        "extras": [
+          {
+            "id": 0,
+            "name": "Bacon",
+            "check": false
+          },
+          {
+            "id": 1,
+            "name": "Catupiry",
+            "check": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Margherita",
+        "price": 20,
+        "description": "Mussarela, tomate, oregano e manjericão.",
+        "featured": false,
+        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZMG.jpg",
+        "ingredients": [
+          {
+            "id": 0,
+            "name": "Queijo",
+            "check": true
+          },
+          {
+            "id": 1,
+            "name": "Ervilha",
+            "check": true
+          },
+          {
+            "id": 2,
+            "name": "Milho",
+            "check": true
+          }
+        ],
+        "extras": [
+          {
+            "id": 0,
+            "name": "Bacon",
+            "check": false
+          },
+          {
+            "id": 1,
+            "name": "Catupiry",
+            "check": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Alho",
+        "price": 20,
+        "description": "Mussarela, tomate, oregano e manjericão.",
+        "featured": false,
+        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZMG.jpg",
+        "ingredients": [
+          {
+            "id": 0,
+            "name": "Queijo",
+            "check": true
+          },
+          {
+            "id": 1,
+            "name": "Ervilha",
+            "check": true
+          },
+          {
+            "id": 2,
+            "name": "Milho",
+            "check": true
+          }
+        ],
+        "extras": [
+          {
+            "id": 0,
+            "name": "Bacon",
+            "check": false
+          },
+          {
+            "id": 1,
+            "name": "Catupiry",
+            "check": false
+          }
+        ]
+      }
+    ],
+    "ingredients": [
+      {
+        "id": 0,
+        "name": "Bacon"
+      },
+      {
+        "id": 1,
+        "name": "Catupiry"
+      },
+      {
+        "id": 2,
+        "name": "Milho"
+      },
+      {
+        "id": 3,
+        "name": "Palmito"
+      }
+    ],
+    "crusts": [
+      {
+        "id": 0,
+        "name": "Thin",
+        "description": "Massa fininha repleta de sabor"
+      },
+      {
+        "id": 1,
+        "name": "Crunch",
+        "description": "Massa crocante e bem temperada"
+      }
+    ],
+    "sizes": [
+      {
+        "id": 0,
+        "name": "Broto"
+      },
+      {
+        "id": 1,
+        "name": "Média"
+      },
+      {
+        "id": 2,
+        "name": "Grande"
+      },
+      {
+        "id": 3,
+        "name": "Família"
+      }
+    ],
+    "users": [
+      {
+        "id": 0,
+        "name": "Bruno",
+        "surname": "Chirelli",
+        "email": "brunochirelli@gmail.com",
+        "points": 0,
+        "orders": [0]
+      }
+    ],
+    "orders": [
+      {
+        "id": 0,
+        "user": 0,
+        "datetime": "",
+        "payment": "credit",
+        "orderDetail": {
+          "products": [
+            {
+              "productName": "Custom",
+              "ingredients": {
+                "dough": "thin",
+                "ingredients": ["Pomarola", "Queijo cheddar", "Borda Catupiry"]
+              },
+              "price": 20,
+              "observation": null
+            }
+          ]
+        }
+      }
+    ],
+    "session": {
+      "user": null,
+      "email": null,
+      "bonus": 0,
+      "order": {
+        "name": "Margherita",
+        "price": 20,
+        "description": "Mussarela, tomate, oregano e manjericão.",
+        "featured": false,
+        "size": "medium",
+        "dough": "thin",
+        "ingredients": [
+          { "name": "mussarela", "choice": true },
+          { "name": "mussarela", "choice": true },
+          { "name": "mussarela", "choice": true }
+        ]
+      }
+    }
+  }
+}
