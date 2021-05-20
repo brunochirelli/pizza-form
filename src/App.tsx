@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import "./App.css";
 import { useAppDispatch } from "./app/hooks";
 
 import Layout from "./components/Layout";
