@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { CssBaseline } from "@material-ui/core";
 
-import "./static/css/normalize.css";
+import "./static/css/global.css";
 
 import App from "./App";
 import { store } from "./app/store";
@@ -11,6 +12,7 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <CssBaseline />
       <App />
     </Provider>
   </React.StrictMode>,
