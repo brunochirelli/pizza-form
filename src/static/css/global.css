@@ -1,5 +1,15 @@
+:root {
+  --yellow: #feda00;
+  --green: #0ab14d;
+  --brown: #571b10;
+}
+
 html {
   font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
 }
 
 h1,
@@ -9,6 +19,13 @@ h4,
 h5,
 h6 {
   margin: 0;
+  font-weight: bolder;
+  font-family: "Poppins", sans-serif !important;
+}
+
+a {
+  font-weight: bolder !important;
+  font-family: "Poppins", sans-serif !important;
 }
 
 p {
