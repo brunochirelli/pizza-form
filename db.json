@@ -1,5 +1,12 @@
 {
   "products": {
+    "promotions": [
+      {
+        "id": 0,
+        "name": "dayPizzaBonus",
+        "points": 500
+      }
+    ],
     "pizzas": [
       {
         "id": 0,
@@ -7,7 +14,7 @@
         "price": 20,
         "description": "Mussarela, presunto, requeijão, oregano e tomate.",
         "featured": true,
-        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZBU.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621694112-6.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -44,7 +51,7 @@
         "price": 20,
         "description": "Mussarela, calabresa e cebola, oregano.",
         "featured": false,
-        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZBU.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621694106-5.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -81,7 +88,7 @@
         "price": 20,
         "description": "Queijo mussarela e oregano.",
         "featured": false,
-        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZMUS.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621694099-4.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -118,7 +125,7 @@
         "price": 20,
         "description": "Mussarela, pepperoni, requeijão, oregano e parmesão ralado.",
         "featured": false,
-        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZCU.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621694093-3.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -155,7 +162,7 @@
         "price": 20,
         "description": "Mussarela, tomate, oregano e manjericão.",
         "featured": false,
-        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZMG.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621694085-2.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -192,7 +199,7 @@
         "price": 20,
         "description": "Mussarela, tomate, oregano e manjericão.",
         "featured": false,
-        "featuredImage": "https://cache.dominos.com/olo/6_55_4/assets/build/market/BR/_pt/images/img/products/larges/S_PIZMG.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621694075-1.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -245,13 +252,18 @@
     "crusts": [
       {
         "id": 0,
-        "name": "Thin",
-        "description": "Massa fininha repleta de sabor"
+        "name": "Fina",
+        "description": "Massa fininha repleta de sabor. Aquela que você pega na mão e todo recheio beija a caixa."
       },
       {
         "id": 1,
-        "name": "Crunch",
-        "description": "Massa crocante e bem temperada"
+        "name": "Crocante",
+        "description": "Massa crocante e bem temperada."
+      },
+      {
+        "id": 2,
+        "name": "Grossa",
+        "description": "Massa bitela com pouco recheio. Nem sei por quê vendemos."
       }
     ],
     "sizes": [
@@ -294,7 +306,11 @@
               "productName": "Custom",
               "ingredients": {
                 "dough": "thin",
-                "ingredients": ["Pomarola", "Queijo cheddar", "Borda Catupiry"]
+                "ingredients": [
+                  "Pomarola",
+                  "Queijo cheddar",
+                  "Borda Catupiry"
+                ]
               },
               "price": 20,
               "observation": null
