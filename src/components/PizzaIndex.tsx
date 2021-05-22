@@ -1,26 +1,38 @@
 import React from "react";
-import { PizzaType } from "../types/app";
 import { useAppSelector } from "../app/hooks";
+import { PizzaType } from "../types/app";
+
+import { Grid } from "@material-ui/core";
 
 import ProductCard from "./ProductCard";
 
-const PizzaIndex = () => {
-  const pizzas = useAppSelector((state) => state.order.pizzas);
+type PizzaIndexProps = {
+  /** This prop drill to ProductCard to handle if it will be taken to the next
+   * step section or not  */
+  goToNextStep?: boolean;
+};
+
+const PizzaIndex = ({ goToNextStep }: PizzaIndexProps) => {
+  const { pizzas } = useAppSelector((state) => state.order);
 
   return (
-    <div>
-      <ul>
+    <>
+      <Grid container spacing={2} style={{ marginTop: "1rem" }}>
         {pizzas.map((pizza: PizzaType) => (
-          <li key={pizza.id}>
+          <Grid item xs={12} sm={6} key={pizza.id}>
             <ProductCard
+              id={pizza.id}
               title={pizza.name}
               price={pizza.price}
               description={pizza.description}
+              featuredImage={pizza.featuredImage}
+              featuredPizza={pizza.featured}
+              goToNextStep={goToNextStep}
             />
-          </li>
+          </Grid>
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </>
   );
 };
 

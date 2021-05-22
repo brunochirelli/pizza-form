@@ -1,20 +1,58 @@
+import { Container } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { useAppSelector } from "../app/hooks";
+
+import logo from "../static/images/logo.png";
+
+/**
+ * Header Component
+ *
+ * Displays the main menu, user profile bonus and cart
+ *
+ * @version   0.0.1
+ * @component
+ */
 
 const Header = () => {
+  const { points } = useAppSelector((state) => state.order.user);
+
   return (
-    <header>
-      <nav aria-label="menu principal">
-        <ul>
-          <li>
-            <Link to="/">Pitça</Link>
-          </li>
-          <li>menu</li>
-          <li>profile</li>
-        </ul>
-      </nav>
-    </header>
+    <StyledHeader>
+      <Container maxWidth="md">
+        <nav aria-label="menu principal">
+          <ul>
+            <li>
+              <Link to="/">
+                <img src={logo} alt="" />
+              </Link>
+            </li>
+
+            <li>pontos: {points}</li>
+          </ul>
+        </nav>
+      </Container>
+    </StyledHeader>
   );
 };
+
+const StyledHeader = styled.header`
+  nav {
+    width: 100%;
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      padding: 1rem;
+
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+`;
 
 export default Header;

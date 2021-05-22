@@ -1,50 +1,180 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+
+import {
+  Button,
+  Card,
+  Container,
+  Typography,
+} from "@material-ui/core";
+import { ExpandLess } from "@material-ui/icons";
+
 import { useAppSelector } from "../app/hooks";
 
 /**
- * Seção que torna visível o atual pedido do usuário.
+ * Pizza Excerpt Section
  *
- * É um modal expansivo localizado a parte de baixo da tela.
+ * Modal that could be expanded to show order details.
  *
- * @returns component
+ * This component will be improved due UX on desktop.
+ *
+ * @version   0.0.1
+ * @component
  */
 const MyPizza = () => {
-  const order = useAppSelector((state) => state.order.order);
+  const location = useLocation();
+  const { order } = useAppSelector((state) => state.order);
 
-  if (!order.pizza.name)
-    return <Link to="/pedido/recheio">Comece seu pedido</Link>;
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  useEffect(() => {
+    console.log("rendered");
+    return () => {
+      setOpen(false);
+    };
+  }, [location]);
 
   return (
-    <div>
-      <h2>{order.pizza.name}</h2>
-      <div>{order.pizza.description}</div>
+    <StyledSection>
+      <Container maxWidth="sm">
+        <Card className={open ? "card open" : "card"}>
+          <div className="content">
+            <Typography variant="h6">
+              Pizza de {order.pizza?.name}
+            </Typography>
 
-      {!!order.pizza.extras.length && (
-        <div>
-          {order.pizza.extras
-            .filter((e: any) => e.check === true)
-            .map((e: any) => (
-              <div key={"mypizza" + e.id + e.name}>+ {e.name}</div>
-            ))}
-        </div>
-      )}
+            {open ? (
+              <>
+                {/* Crust */}
+                <div>
+                  <Typography variant="h6">Massa</Typography>
+                  <Typography variant="body1">
+                    {order.crust?.name ? (
+                      order.crust.name
+                    ) : (
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        component={Link}
+                        to="/pedido/massa"
+                      >
+                        Escolha a massa
+                      </Button>
+                    )}
+                  </Typography>
+                </div>
 
-      {!!order.crust && (
-        <div>
-          <h3>Massa</h3>
-          <div>{order.crust.name}</div>
-        </div>
-      )}
+                {/* Size */}
+                <div>
+                  <Typography variant="h6">Tamanho</Typography>
+                  <Typography variant="body1">
+                    {order.size?.name ? (
+                      order.size.name
+                    ) : (
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        component={Link}
+                        to="/pedido/tamanho"
+                      >
+                        Escolha o tamanho
+                      </Button>
+                    )}
+                  </Typography>
+                </div>
 
-      {!!order.size && (
-        <div>
-          <h3>Tamanho</h3>
-          <div>{order.size.name}</div>
-        </div>
-      )}
-    </div>
+                {/* Checkout button */}
+                <Button disabled={!order.size && !order.crust}>
+                  Checkout
+                </Button>
+              </>
+            ) : (
+              // closed starts
+              <Typography variant="caption" noWrap>
+                {order.crust?.name && (
+                  <span>Massa {order.crust.name.toLowerCase()} </span>
+                )}
+                {order.size?.name && (
+                  <span>tamanho {order.size.name.toLowerCase()}</span>
+                )}
+              </Typography>
+            )}
+          </div>
+          <div>
+            {open ? (
+              <Button
+                size="small"
+                endIcon={<ExpandLess />}
+                onClick={handleClick}
+              >
+                fechar
+              </Button>
+            ) : (
+              <Button
+                size="small"
+                endIcon={<ExpandLess />}
+                onClick={handleClick}
+              >
+                mais
+              </Button>
+            )}
+          </div>
+        </Card>
+      </Container>
+    </StyledSection>
   );
 };
+
+const StyledSection = styled.section`
+  position: fixed;
+  bottom: 1rem;
+  z-index: 100;
+  width: 100%;
+
+  .card {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 0;
+    padding: 2rem 1rem;
+    transition: height 0.2s ease;
+
+    svg {
+      transform: rotate(0);
+      transition: transform 0.5s ease;
+    }
+
+    &.open {
+      z-index: 10;
+      align-items: flex-start;
+      height: 80vh;
+      padding: 1rem;
+      background: white;
+      transition: all 0.5s ease;
+
+      svg {
+        transform: rotate(180deg);
+      }
+
+      &::before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1 !important;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        content: " ";
+      }
+    }
+  }
+`;
 
 export default MyPizza;

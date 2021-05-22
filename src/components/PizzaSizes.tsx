@@ -1,45 +1,56 @@
+import { Container } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addSize } from "../features/order/orderSlice";
+import RadioChoice from "./RadioChoice";
+import StepWrapper from "./StepWrapper";
+
+/**
+ * Pizza Sizes Step
+ *
+ * Component to hold sizes options.
+ *
+ * @version   0.0.1
+ * @component
+ */
 
 const PizzaSizes = () => {
   const dispatch = useAppDispatch();
-  const sizes = useAppSelector((state) => state.order.sizes);
-  const order = useAppSelector((state) => state.order.order);
+  const { sizes, order } = useAppSelector((state) => state.order);
 
   const handleChange = (e: any) => {
     dispatch(addSize(e.target.value));
   };
 
   return (
-    <div>
-      <h2>Tamanhos</h2>
-      <ul>
-        {sizes.map((size) => (
-          <li key={size.name + size.id}>
-            <label>
-              <input
-                type="radio"
-                value={size.id}
+    <StepWrapper
+      title="Tamanho"
+      prevStepCta="Massa"
+      prevStepUrl="/pedido/massa"
+      nextStepCta="Ingredientes"
+      nextStepUrl="/pedido/ingredientes"
+      condition={!!order.size}
+    >
+      <Container maxWidth="sm">
+        <ul>
+          {sizes.map((size) => (
+            <li key={size.name + size.id}>
+              <RadioChoice
                 checked={
-                  !!order.size && size.id === order.size.id ? true : false
+                  !!order.size && size.id === order.size.id
+                    ? true
+                    : false
                 }
-                name="size"
-                id={size.name}
+                name={size.name}
+                id={size.id}
                 onChange={handleChange}
               />
-              {size.name}
-            </label>
-          </li>
-        ))}
-      </ul>
-
-      {!!order?.size?.name && (
-        <Link to="/pedido/ingredientes">Escolha os Ingredientes</Link>
-      )}
-      <Link to="/pedido/massa">Voltar para escolha da massa</Link>
-    </div>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </StepWrapper>
   );
 };
 export default PizzaSizes;
