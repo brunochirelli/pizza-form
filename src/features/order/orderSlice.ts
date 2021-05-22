@@ -41,7 +41,9 @@ const initialState: OrderState = {
 };
 
 export const fetchProducts = createAsyncThunk("order/fetchProducts", () => {
-  return fetch("http://localhost:3001/products")
+  return fetch(
+    "https://my-json-server.typicode.com/brunochirelli/pizza-api/products"
+  )
     .then((res) => res.json())
     .catch((err) => console.error(err));
 });
