@@ -16,14 +16,17 @@ interface OrderRouteProps extends RouteProps {
  * @version 0.0.1
  * @returns HOC wrapping Route
  */
-const OrderRoute = ({ component: Component, ...rest }: OrderRouteProps) => {
+const OrderRoute = ({
+  component: Component,
+  ...rest
+}: OrderRouteProps) => {
   const { pizza } = useAppSelector((state) => state.order.order);
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (!pizza.name) {
+        if (!pizza?.name) {
           return <Redirect to="/pedido/recheio" />;
         }
         return <Component {...props} />;
