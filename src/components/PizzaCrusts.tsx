@@ -40,9 +40,7 @@ const PizzaCrusts = () => {
             <li key={crust.name + crust.id}>
               <RadioChoice
                 checked={
-                  !!order.crust && crust.id === order.crust.id
-                    ? true
-                    : false
+                  !!order.crust && crust.id === order.crust.id ? true : false
                 }
                 name={crust.name}
                 id={crust.id}

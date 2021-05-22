@@ -1,18 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import {
-  Button,
-  Container,
-  FormControlLabel,
-  Switch,
-} from "@material-ui/core";
+import { Button, Container, FormControlLabel, Switch } from "@material-ui/core";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import {
-  toggleIngredient,
-  toggleExtra,
-} from "../features/order/orderSlice";
+import { toggleIngredient, toggleExtra } from "../features/order/orderSlice";
 
 import StepWrapper from "./StepWrapper";
 
@@ -31,10 +23,7 @@ const PizzaIngredients = () => {
   // const ingredients = useAppSelector((state) => state.order.ingredients);
   const order = useAppSelector((state) => state.order.order);
 
-  const handleChange = (
-    ingredient: any,
-    type?: "extra" | "ingredient"
-  ) => {
+  const handleChange = (ingredient: any, type?: "extra" | "ingredient") => {
     if (type === "extra") dispatch(toggleExtra(ingredient));
 
     if (type === "ingredient") dispatch(toggleIngredient(ingredient));
@@ -53,9 +42,7 @@ const PizzaIngredients = () => {
                   <Switch
                     checked={ingredient.check}
                     name="ingredient"
-                    onChange={() =>
-                      handleChange(ingredient, "ingredient")
-                    }
+                    onChange={() => handleChange(ingredient, "ingredient")}
                   />
                 }
                 label={ingredient.name}

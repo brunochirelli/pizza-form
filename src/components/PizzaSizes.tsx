@@ -38,9 +38,7 @@ const PizzaSizes = () => {
             <li key={size.name + size.id}>
               <RadioChoice
                 checked={
-                  !!order.size && size.id === order.size.id
-                    ? true
-                    : false
+                  !!order.size && size.id === order.size.id ? true : false
                 }
                 name={size.name}
                 id={size.id}

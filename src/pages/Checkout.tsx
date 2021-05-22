@@ -27,14 +27,17 @@ import { useHistory } from "react-router";
 const Checkout = () => {
   const history = useHistory();
   const dispatch = useAppDispatch();
-  const { user, order } = useAppSelector((state) => state.order);
+  const {
+    //user,
+    order,
+  } = useAppSelector((state) => state.order);
 
   const [open, setOpen] = useState(false);
 
-  const handleLogin = () => {
-    // temporary just to mock a login session
-    dispatch(login());
-  };
+  // const handleLogin = () => {
+  //   // temporary just to mock a login session
+  //   dispatch(login());
+  // };
 
   const handlePayment = () => {
     dispatch(processOrder());

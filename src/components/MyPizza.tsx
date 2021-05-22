@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-import {
-  Button,
-  Card,
-  Container,
-  Typography,
-} from "@material-ui/core";
+import { Button, Card, Container, Typography } from "@material-ui/core";
 import { ExpandLess } from "@material-ui/icons";
 
 import { useAppSelector } from "../app/hooks";
@@ -44,9 +39,7 @@ const MyPizza = () => {
       <Container maxWidth="sm">
         <Card className={open ? "card open" : "card"}>
           <div className="content">
-            <Typography variant="h6">
-              Pizza de {order.pizza?.name}
-            </Typography>
+            <Typography variant="h6">Pizza de {order.pizza?.name}</Typography>
 
             {open ? (
               <>
@@ -89,9 +82,7 @@ const MyPizza = () => {
                 </div>
 
                 {/* Checkout button */}
-                <Button disabled={!order.size && !order.crust}>
-                  Checkout
-                </Button>
+                <Button disabled={!order.size && !order.crust}>Checkout</Button>
               </>
             ) : (
               // closed starts

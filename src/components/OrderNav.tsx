@@ -16,9 +16,7 @@ import { Check } from "@material-ui/icons";
  */
 
 const OrderNav = () => {
-  const { pizza, size, crust } = useAppSelector(
-    (state) => state.order.order
-  );
+  const { pizza, size, crust } = useAppSelector((state) => state.order.order);
 
   return (
     <StyledNav>
@@ -52,10 +50,7 @@ const OrderNav = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/pedido/ingredientes"
-              activeClassName="optional"
-            >
+            <NavLink to="/pedido/ingredientes" activeClassName="optional">
               Ingredientes
             </NavLink>
           </li>

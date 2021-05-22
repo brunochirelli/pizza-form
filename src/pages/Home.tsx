@@ -18,8 +18,7 @@ import { PizzaType } from "../types/app";
 
 const Home = () => {
   // Elevar ao Redux
-  const [featuredPizza, setFeaturedPizza] =
-    useState<PizzaType | null>(null);
+  const [featuredPizza, setFeaturedPizza] = useState<PizzaType | null>(null);
 
   const pizzas = useAppSelector((state) => state.order.pizzas);
 
@@ -27,9 +26,7 @@ const Home = () => {
 
   useEffect(() => {
     !!pizzas &&
-      setFeaturedPizza(
-        pizzas.filter((pizza: PizzaType) => pizza.featured)[0]
-      );
+      setFeaturedPizza(pizzas.filter((pizza: PizzaType) => pizza.featured)[0]);
   }, [pizzas]);
 
   return (

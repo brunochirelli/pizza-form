@@ -37,23 +37,11 @@ const Order = () => {
           render={() => <Redirect to="/pedido/recheio" />}
         />
 
-        <Route
-          path="/pedido/recheio"
-          exact
-          component={PizzaToppings}
-        />
+        <Route path="/pedido/recheio" exact component={PizzaToppings} />
 
-        <OrderRoute
-          path="/pedido/massa"
-          exact
-          component={PizzaCrusts}
-        />
+        <OrderRoute path="/pedido/massa" exact component={PizzaCrusts} />
 
-        <OrderRoute
-          path="/pedido/tamanho"
-          exact
-          component={PizzaSizes}
-        />
+        <OrderRoute path="/pedido/tamanho" exact component={PizzaSizes} />
 
         <OrderRoute
           path="/pedido/ingredientes"

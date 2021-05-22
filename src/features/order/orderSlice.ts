@@ -1,14 +1,5 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
-import {
-  CrustType,
-  Ingredient,
-  PizzaType,
-  SizeType,
-} from "../../types/app";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CrustType, Ingredient, PizzaType, SizeType } from "../../types/app";
 
 export interface OrderState {
   status: "idle" | "loading" | "failed";
@@ -49,14 +40,11 @@ const initialState: OrderState = {
   promotions: [],
 };
 
-export const fetchProducts = createAsyncThunk(
-  "order/fetchProducts",
-  () => {
-    return fetch("http://localhost:3001/products")
-      .then((res) => res.json())
-      .catch((err) => console.error(err));
-  }
-);
+export const fetchProducts = createAsyncThunk("order/fetchProducts", () => {
+  return fetch("http://localhost:3001/products")
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
+});
 
 export const orderSlice = createSlice({
   name: "order",
@@ -67,12 +55,10 @@ export const orderSlice = createSlice({
       state,
       action: PayloadAction<{ id: any; type?: "featured" }>
     ) => {
-      const { id, type } = action.payload;
+      const { id } = action.payload;
 
       // // needs better typing to avoid undefined
-      const current = state.pizzas?.find(
-        (pizza) => pizza.id === parseInt(id)
-      );
+      const current = state.pizzas?.find((pizza) => pizza.id === parseInt(id));
 
       state.order.pizza = current;
     },

@@ -1,11 +1,7 @@
 import "./static/css/global.css";
 
 import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { useAppDispatch } from "./app/hooks";
 

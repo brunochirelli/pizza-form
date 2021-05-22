@@ -306,11 +306,7 @@
               "productName": "Custom",
               "ingredients": {
                 "dough": "thin",
-                "ingredients": [
-                  "Pomarola",
-                  "Queijo cheddar",
-                  "Borda Catupiry"
-                ]
+                "ingredients": ["Pomarola", "Queijo cheddar", "Borda Catupiry"]
               },
               "price": 20,
               "observation": null

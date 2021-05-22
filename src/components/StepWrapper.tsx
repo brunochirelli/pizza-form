@@ -14,17 +14,11 @@ type StepWrapperProps = {
   /** Call-to-action to next step */
   nextStepCta?: string;
   /** URL to next step */
-  nextStepUrl?:
-    | "/pedido/massa"
-    | "/pedido/tamanho"
-    | "/pedido/ingredientes";
+  nextStepUrl?: "/pedido/massa" | "/pedido/tamanho" | "/pedido/ingredientes";
   /** Call-to-action to previous step */
   prevStepCta?: string;
   /** URL to previous step */
-  prevStepUrl?:
-    | "/pedido/recheio"
-    | "/pedido/massa"
-    | "/pedido/tamanho";
+  prevStepUrl?: "/pedido/recheio" | "/pedido/massa" | "/pedido/tamanho";
 };
 
 /**
@@ -50,11 +44,7 @@ const StepWrapper = ({
       <Container maxWidth="sm">
         <StyledNav>
           {prevStepUrl && condition && (
-            <Button
-              startIcon={<ArrowBack />}
-              component={Link}
-              to={prevStepUrl}
-            >
+            <Button startIcon={<ArrowBack />} component={Link} to={prevStepUrl}>
               {prevStepCta}
             </Button>
           )}

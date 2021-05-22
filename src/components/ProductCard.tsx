@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-import { Box, Button, Card, IconButton, Typography } from "@material-ui/core";
+import { Box, Card, IconButton, Typography } from "@material-ui/core";
 import { Add, Check, Star } from "@material-ui/icons";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
