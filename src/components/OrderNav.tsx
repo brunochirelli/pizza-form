@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 import { Container } from "@material-ui/core";
 import { useAppSelector } from "../app/hooks";
-import { Check } from "@material-ui/icons";
 
 /**
  * Order Navigation

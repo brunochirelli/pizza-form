@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import OrderRoute from "../routes/OrderRoute";
 
-import MyPizza from "../components/MyPizza";
 import OrderNav from "../components/OrderNav";
 import PizzaCrusts from "../components/PizzaCrusts";
 import PizzaIngredients from "../components/PizzaIngredients";

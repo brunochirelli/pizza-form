@@ -1,8 +1,9 @@
-import { Container } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addSize } from "../features/order/orderSlice";
+
+import { Container } from "@material-ui/core";
+
 import RadioChoice from "./RadioChoice";
 import StepWrapper from "./StepWrapper";
 

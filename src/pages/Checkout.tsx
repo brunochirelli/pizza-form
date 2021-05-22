@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { processOrder, login } from "../features/order/orderSlice";
+import { processOrder } from "../features/order/orderSlice";
 
 import {
   Button,

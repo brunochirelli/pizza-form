@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { Button, Container, Typography } from "@material-ui/core";
-import MyPizza from "./MyPizza";
+import { Button, Container } from "@material-ui/core";
 import { ArrowBack, ArrowForward } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 

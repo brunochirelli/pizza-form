@@ -1,11 +1,10 @@
-import { Container, Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { useAppSelector } from "../app/hooks";
-import FeaturedPizza from "../components/FeaturedPizza";
-import PizzaIndex from "../components/PizzaIndex";
-import ProductCard from "../components/ProductCard";
 
 import { PizzaType } from "../types/app";
+import { useAppSelector } from "../app/hooks";
+import PizzaIndex from "../components/PizzaIndex";
+
+import { Container } from "@material-ui/core";
 
 /**
  * Home Page
