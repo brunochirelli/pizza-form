@@ -99,71 +99,12 @@ const ProductCard = ({
 };
 
 const StyledDiv = styled.div`
-  & .featured {
-    position: relative;
-    border: 2px solid var(--brown);
-
-    &::before {
-      position: absolute;
-      top: -0.5rem;
-      right: -0.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 3.5rem;
-      height: 3.5rem;
-      padding: 0.5rem;
-      color: white;
-      font-weight: bolder;
-      font-size: 0.65rem;
-      line-height: 1;
-      text-align: center;
-      text-transform: uppercase;
-      background: var(--brown);
-      border-radius: 50%;
-      transform: rotate(25deg);
-      content: "Pizza do Dia";
-    }
-  }
-
-  & .selected {
-    position: relative;
-    border: 2px solid var(--green);
-
-    .button {
-      color: white !important;
-      background: var(--green) !important;
-    }
-
-    &::before {
-      position: absolute;
-      top: -0.5rem;
-      right: -0.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 3.5rem;
-      height: 3.5rem;
-      padding: 0.5rem;
-      color: var(--yellow);
-      font-weight: bolder;
-      font-size: 0.65rem;
-      line-height: 1;
-      text-align: center;
-      text-transform: uppercase;
-      background: var(--green);
-      border-radius: 50%;
-      transform: rotate(25deg);
-      content: "Quero Esse!";
-    }
-  }
-
   .card {
     position: relative;
     display: flex;
     width: 100%;
     background: white;
-    border: 2px solid white;
+    border: 2px solid transparent;
     border-radius: 1rem;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
     cursor: pointer;
@@ -226,10 +167,67 @@ const StyledDiv = styled.div`
         background: var(--yellow);
       }
     }
-  }
 
-  &:hover {
-    .card {
+    &.featured {
+      position: relative;
+      border: 2px solid var(--brown);
+
+      &::before {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 0.5rem;
+        color: white;
+        font-weight: bolder;
+        font-size: 0.65rem;
+        line-height: 1;
+        text-align: center;
+        text-transform: uppercase;
+        background: var(--brown);
+        border-radius: 50%;
+        transform: rotate(25deg);
+        content: "Pizza do Dia";
+      }
+    }
+
+    &.selected {
+      position: relative;
+      border: 2px solid var(--green);
+
+      .button {
+        color: white !important;
+        background: var(--green) !important;
+      }
+
+      &::before {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 0.5rem;
+        color: var(--yellow);
+        font-weight: bolder;
+        font-size: 0.65rem;
+        line-height: 1;
+        text-align: center;
+        text-transform: uppercase;
+        background: var(--green);
+        border-radius: 50%;
+        transform: rotate(25deg);
+        content: "Quero Esse!";
+      }
+    }
+
+    &:hover {
       border: 2px solid lightgray;
     }
   }
