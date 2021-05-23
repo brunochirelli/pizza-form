@@ -19,10 +19,15 @@ import { SizeType } from "../types/app";
 
 const PizzaSizes = () => {
   const dispatch = useAppDispatch();
-  const { sizes, order } = useAppSelector((state) => state.order);
+  const { sizes } = useAppSelector((state) => state.products);
+  const { size: orderSize } = useAppSelector((state) => state.order);
 
   const handleChange = (e: any) => {
-    dispatch(addSize(e.target.value));
+    const currentSize = sizes?.find(
+      (size) => size.id === parseInt(e.target.value)
+    );
+
+    dispatch(addSize(currentSize));
   };
 
   return (
@@ -32,16 +37,14 @@ const PizzaSizes = () => {
       prevStepUrl="/pedido/massa"
       nextStepCta="Ingredientes"
       nextStepUrl="/pedido/ingredientes"
-      condition={!!order.size}
+      condition={!!orderSize?.name}
     >
       <Container maxWidth="sm">
         <ul>
-          {sizes.map((size: SizeType) => (
+          {sizes?.map((size: SizeType) => (
             <li key={size.name + size.id}>
               <RadioChoice
-                checked={
-                  !!order.size && size.id === order.size.id ? true : false
-                }
+                checked={orderSize?.id === size.id ? true : false}
                 name={size.name}
                 id={size.id}
                 onChange={handleChange}

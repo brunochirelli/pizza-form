@@ -17,7 +17,7 @@ interface OrderRouteProps extends RouteProps {
  * @returns HOC wrapping Route
  */
 const OrderRoute = ({ component: Component, ...rest }: OrderRouteProps) => {
-  const { pizza } = useAppSelector((state) => state.order.order);
+  const { pizza } = useAppSelector((state) => state.order);
 
   return (
     <Route

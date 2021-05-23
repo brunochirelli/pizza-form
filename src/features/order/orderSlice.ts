@@ -4,6 +4,9 @@ import { CrustType, Ingredient, PizzaType, SizeType } from "../../types/app";
 
 export interface OrderState {
   status: "idle" | "loading" | "failed";
+  pizza: PizzaType | null;
+  crust: CrustType | null;
+  size: SizeType | null;
   user: {
     name?: string | null;
     email?: string | null;
@@ -24,6 +27,9 @@ export interface OrderState {
 
 const initialState: OrderState = {
   status: "idle",
+  pizza: null,
+  crust: null,
+  size: null,
   user: {
     name: null,
     email: null,
@@ -56,32 +62,17 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     /** ORDER */
-    addPizza: (
-      state,
-      action: PayloadAction<{ id: any; type?: "featured" }>
-    ) => {
-      const { id } = action.payload;
-
-      const current = state.pizzas?.find(
-        (pizza: PizzaType) => pizza.id === parseInt(id)
-      );
-
-      state.order.pizza = current;
+    addPizza: (state, action: PayloadAction<any>) => {
+      state.pizza = action.payload;
+      state.order.pizza = action.payload;
     },
 
     addCrust: (state, action: PayloadAction<any>) => {
-      const current: any = state.crusts?.find(
-        (crust: any) => crust.id === parseInt(action.payload)
-      );
-
-      state.order.crust = current;
+      state.crust = action.payload;
     },
 
     addSize: (state, action: PayloadAction<any>) => {
-      const current: any = state.sizes?.find(
-        (size: any) => size.id === parseInt(action.payload)
-      );
-      state.order.size = current;
+      state.size = action.payload;
     },
 
     toggleIngredient: (state, action: PayloadAction<any>) => {
@@ -114,9 +105,9 @@ export const orderSlice = createSlice({
       }
     },
     resetOrder: (state) => {
-      state.order.pizza = null;
-      state.order.crust = null;
-      state.order.size = null;
+      state.pizza = null;
+      state.crust = null;
+      state.size = null;
     },
   },
 });

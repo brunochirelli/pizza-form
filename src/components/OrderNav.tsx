@@ -15,7 +15,8 @@ import { useAppSelector } from "../app/hooks";
  */
 
 const OrderNav = () => {
-  const { pizza, size, crust } = useAppSelector((state) => state.order.order);
+  const { size, crust } = useAppSelector((state) => state.order);
+  const { pizza } = useAppSelector((state) => state.order);
 
   return (
     <StyledNav>
@@ -24,7 +25,7 @@ const OrderNav = () => {
           <li>
             <NavLink
               to="/pedido/recheio"
-              className={pizza?.name && "filled"}
+              className={`${!!pizza && "filled"}`}
               activeClassName="active"
             >
               Recheio
@@ -33,7 +34,7 @@ const OrderNav = () => {
           <li>
             <NavLink
               to="/pedido/massa"
-              className={crust?.name && "filled"}
+              className={`${!!crust && "filled"}`}
               activeClassName="active"
             >
               Massa
@@ -42,7 +43,7 @@ const OrderNav = () => {
           <li>
             <NavLink
               to="/pedido/tamanho"
-              className={size?.name && "filled"}
+              className={`${!!size && "filled"}`}
               activeClassName="active"
             >
               Tamanho

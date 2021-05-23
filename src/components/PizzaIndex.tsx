@@ -27,15 +27,7 @@ const PizzaIndex = ({ goToNextStep }: PizzaIndexProps) => {
       <Grid container spacing={2} style={{ marginTop: "1rem" }}>
         {pizzas?.map((pizza: PizzaType) => (
           <Grid item xs={12} sm={6} key={pizza.id}>
-            <ProductCard
-              id={pizza.id}
-              title={pizza.name}
-              price={pizza.price}
-              description={pizza.description}
-              featuredImage={pizza.featuredImage}
-              featuredPizza={pizza.featured}
-              goToNextStep={goToNextStep}
-            />
+            <ProductCard pizza={pizza} goToNextStep={goToNextStep} />
           </Grid>
         ))}
       </Grid>

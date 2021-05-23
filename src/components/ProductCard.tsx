@@ -9,13 +9,11 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addPizza } from "../features/order/orderSlice";
 import { numberToCurrency } from "../utils/numberToCurrency";
 
+import { PizzaType } from "../types/app";
+
 type ProductProps = {
-  title: string;
-  price: number;
-  description: string;
-  id: number;
-  featuredPizza: boolean;
-  featuredImage?: string;
+  /** The returned pizza object */
+  pizza: PizzaType;
   /**
    * This boolean is forward by ProductIndex component.
    *
@@ -34,21 +32,15 @@ type ProductProps = {
  * @component
  */
 
-const ProductCard = ({
-  title,
-  description,
-  featuredImage,
-  price,
-  id,
-  featuredPizza,
-  goToNextStep,
-}: ProductProps) => {
+const ProductCard = ({ pizza, goToNextStep }: ProductProps) => {
+  const { name, description, featuredImage, price, id, featured } = pizza;
+
   const history = useHistory();
   const dispatch = useAppDispatch();
-  const orderId = useAppSelector((state) => state.order.order?.pizza?.id);
+  const orderId = useAppSelector((state) => state.order.pizza?.id);
 
   const handleClick = (nextStep?: boolean) => {
-    dispatch(addPizza({ id }));
+    dispatch(addPizza(pizza));
 
     if (nextStep) history.push("/pedido/massa");
   };
@@ -56,13 +48,13 @@ const ProductCard = ({
   return (
     <StyledDiv>
       <Card
-        className={`card ${featuredPizza && "featured"} ${
+        className={`card ${featured && "featured"} ${
           orderId === id && "selected"
         }`}
         onClick={() => handleClick(goToNextStep)}
       >
         <Box className="image" onClick={() => handleClick(goToNextStep)}>
-          <img src={featuredImage} alt={title} />
+          <img src={featuredImage} alt={name} />
         </Box>
 
         <div className="info">
@@ -77,7 +69,7 @@ const ProductCard = ({
               onClick={() => handleClick(goToNextStep)}
               tabIndex={0}
             >
-              {title}
+              {name}
             </Typography>
             <Typography variant="body2" noWrap>
               {description}

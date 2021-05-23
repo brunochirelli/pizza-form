@@ -1,11 +1,12 @@
-import { Container } from "@material-ui/core";
 import React from "react";
 
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { addCrust } from "../features/order/orderSlice";
-import { CrustType } from "../types/app";
-import RadioChoice from "./RadioChoice";
+import { Container } from "@material-ui/core";
 
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { CrustType } from "../types/app";
+import { addCrust } from "../features/order/orderSlice";
+
+import RadioChoice from "./RadioChoice";
 import StepWrapper from "./StepWrapper";
 
 /**
@@ -20,10 +21,14 @@ import StepWrapper from "./StepWrapper";
 
 const PizzaCrusts = () => {
   const dispatch = useAppDispatch();
-  const { crusts, order } = useAppSelector((state) => state.order);
+  const { crusts } = useAppSelector((state) => state.products);
+  const { crust: orderCrust } = useAppSelector((state) => state.order);
 
   const handleChange = (e: any) => {
-    dispatch(addCrust(e.target.value));
+    const selectedCrust = crusts?.find(
+      (crust) => crust.id === parseInt(e.target.value)
+    );
+    dispatch(addCrust(selectedCrust));
   };
 
   return (
@@ -33,16 +38,14 @@ const PizzaCrusts = () => {
       prevStepUrl="/pedido/recheio"
       nextStepCta="Tamanho"
       nextStepUrl="/pedido/tamanho"
-      condition={!!order.crust}
+      condition={!!orderCrust}
     >
       <Container maxWidth="sm">
         <ul>
-          {crusts.map((crust: CrustType) => (
+          {crusts?.map((crust: CrustType) => (
             <li key={crust.name + crust.id}>
               <RadioChoice
-                checked={
-                  !!order.crust && crust.id === order.crust.id ? true : false
-                }
+                checked={crust.id === orderCrust?.id}
                 name={crust.name}
                 id={crust.id}
                 onChange={handleChange}

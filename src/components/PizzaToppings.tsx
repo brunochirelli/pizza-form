@@ -16,14 +16,14 @@ import StepWrapper from "./StepWrapper";
  */
 
 const Toppings = () => {
-  const { order } = useAppSelector((state) => state.order);
+  const { pizza } = useAppSelector((state) => state.order);
 
   return (
     <StepWrapper
       title="Recheios"
       nextStepUrl="/pedido/massa"
       nextStepCta="Escolha a massa"
-      condition={!!order?.pizza?.name}
+      condition={!!pizza?.name}
     >
       <Container maxWidth="md">
         <PizzaIndex />

@@ -44,8 +44,10 @@ const Checkout = () => {
       (promo: IPromotions) => promo.name === "dayPizzaBonus"
     );
 
+    console.log(order.pizza?.featured);
+
     // extract and verify points
-    const points = order.order.pizza?.featured ? promotion?.points : 0;
+    const points = order.pizza?.featured ? promotion?.points : 0;
 
     // update points
     dispatch(updatePoints(points));
@@ -81,30 +83,32 @@ const Checkout = () => {
                 Resumo do Pedido
               </Typography>
               <div className="details">
-                <img
-                  src={order.order.pizza?.featuredImage}
-                  alt={order.order.pizza?.name}
-                />
+                {/* TOPPING */}
+                <img src={order.pizza?.featuredImage} alt={order.pizza?.name} />
                 <div className="item">
                   <Typography variant="h6" component="h2">
                     Pizza de {order.order.pizza?.name}
                   </Typography>
                   <Typography>{order.order.pizza?.description}</Typography>
                 </div>
-                {order.order.crust && (
+
+                {/* CRUST */}
+                {order.crust && (
                   <div className="item">
                     <Typography variant="h6" component="h2">
-                      Massa {order.order.crust?.name}
+                      Massa {order.crust?.name}
                     </Typography>
-                    <Typography>{order.order.crust?.description}</Typography>
+                    <Typography>{order.crust?.description}</Typography>
                   </div>
                 )}
-                {order.order.size && (
+
+                {/* SIZE */}
+                {order.size && (
                   <div className="item">
                     <Typography variant="h6" component="h2">
                       Tamanho
                     </Typography>
-                    <Typography>{order.order.size?.name}</Typography>
+                    <Typography>{order.size?.name}</Typography>
                   </div>
                 )}
               </div>
