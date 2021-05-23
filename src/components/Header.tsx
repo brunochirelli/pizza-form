@@ -29,7 +29,7 @@ const Header = () => {
               </Link>
             </li>
 
-            <li>pontos: {points}</li>
+            <li className="points">pontos: {points}</li>
           </ul>
         </nav>
       </Container>
@@ -50,6 +50,13 @@ const StyledHeader = styled.header`
 
       li {
         list-style-type: none;
+
+        &.points {
+          padding: 0.5rem;
+          font-weight: bolder;
+          background: var(--yellow);
+          border-radius: 1rem;
+        }
       }
     }
   }
