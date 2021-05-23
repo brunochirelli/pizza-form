@@ -12,9 +12,9 @@ import { Ingredient } from "../types/app";
 /**
  * Ingredients Step
  *
- * This component need a huge refactor.
- * -  Products needs to be implemented correctly
- * -
+ * This component has a series of refactorings that could be made to improve UX
+ * and app general functionality as the extras populate and ingredients
+ * selection even turn this step optional.
  *
  * @version   0.0.2
  * @component
@@ -24,9 +24,11 @@ const PizzaIngredients = () => {
   // const ingredients = useAppSelector((state) => state.order.ingredients);
   const order = useAppSelector((state) => state.order.order);
 
-  const handleChange = (ingredient: any, type?: "extra" | "ingredient") => {
+  const handleChange = (
+    ingredient: Ingredient,
+    type?: "extra" | "ingredient"
+  ) => {
     if (type === "extra") dispatch(toggleExtra(ingredient));
-
     if (type === "ingredient") dispatch(toggleIngredient(ingredient));
 
     return;

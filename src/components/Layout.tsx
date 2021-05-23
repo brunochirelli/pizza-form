@@ -5,6 +5,12 @@ type LayoutProps = {
   children: ReactElement;
 };
 
+/**
+ * Main Layout Wrapper
+ *
+ * @version   0.0.1
+ * @component
+ */
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
