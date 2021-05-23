@@ -19,6 +19,12 @@ import storage from "redux-persist/lib/storage";
 
 import orderReducer from "../features/order/orderSlice";
 
+// Grab the state from a global variable injected into the server-generated HTML
+const preloadedState = window.__PRELOADED_STATE__;
+
+// Allow the passed state to be garbage-collected
+delete window.__PRELOADED_STATE__;
+
 // Tell react-snap how to save Redux state
 window.snapSaveState = () => ({
   __PRELOADED_STATE__: store.getState(),
@@ -37,6 +43,8 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
+  // Create Redux store with initial state
+  preloadedState,
   reducer: persistedReducer,
   middleware: getDefaultMiddleware({
     serializableCheck: {
