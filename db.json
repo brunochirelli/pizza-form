@@ -14,7 +14,7 @@
         "price": 20,
         "description": "Mussarela, presunto, requeijão, oregano e tomate.",
         "featured": true,
-        "featuredImage": "https://www.datocms-assets.com/47658/1621694112-6.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621766623-a.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -51,7 +51,7 @@
         "price": 20,
         "description": "Mussarela, calabresa e cebola, oregano.",
         "featured": false,
-        "featuredImage": "https://www.datocms-assets.com/47658/1621694106-5.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621766628-b.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -88,7 +88,7 @@
         "price": 20,
         "description": "Queijo mussarela e oregano.",
         "featured": false,
-        "featuredImage": "https://www.datocms-assets.com/47658/1621694099-4.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621766634-c.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -125,7 +125,7 @@
         "price": 20,
         "description": "Mussarela, pepperoni, requeijão, oregano e parmesão ralado.",
         "featured": false,
-        "featuredImage": "https://www.datocms-assets.com/47658/1621694093-3.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621766638-d.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -162,7 +162,7 @@
         "price": 20,
         "description": "Mussarela, tomate, oregano e manjericão.",
         "featured": false,
-        "featuredImage": "https://www.datocms-assets.com/47658/1621694085-2.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621766643-e.jpg",
         "ingredients": [
           {
             "id": 0,
@@ -199,7 +199,7 @@
         "price": 20,
         "description": "Mussarela, tomate, oregano e manjericão.",
         "featured": false,
-        "featuredImage": "https://www.datocms-assets.com/47658/1621694075-1.jpg",
+        "featuredImage": "https://www.datocms-assets.com/47658/1621766648-f.jpg",
         "ingredients": [
           {
             "id": 0,
