@@ -7,6 +7,7 @@ import { Add, Check, Star } from "@material-ui/icons";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addPizza } from "../features/order/orderSlice";
+import { numberToCurrency } from "../utils/numberToCurrency";
 
 type ProductProps = {
   title: string;
@@ -58,6 +59,7 @@ const ProductCard = ({
         className={`card ${featuredPizza && "featured"} ${
           orderId === id && "selected"
         }`}
+        onClick={() => handleClick(goToNextStep)}
       >
         <Box className="image" onClick={() => handleClick(goToNextStep)}>
           <img src={featuredImage} alt={title} />
@@ -81,7 +83,7 @@ const ProductCard = ({
             </Typography>
           </div>
           <div className="card-footer">
-            <span className="price">R${price}</span>
+            <span className="price">{numberToCurrency(price)}</span>
             <IconButton
               className="button"
               aria-label="personalizar"
@@ -161,8 +163,10 @@ const StyledDiv = styled.div`
     display: flex;
     width: 100%;
     background: white;
+    border: 2px solid white;
     border-radius: 1rem;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
     transition: background 0.2s ease;
 
     .image {
@@ -226,7 +230,7 @@ const StyledDiv = styled.div`
 
   &:hover {
     .card {
-      background: rgba(0, 0, 0, 0.1);
+      border: 2px solid lightgray;
     }
   }
 `;
