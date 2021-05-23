@@ -1,3 +1,5 @@
+![Screenshot](https://www.datocms-assets.com/47658/1621764223-wallp.png)
+
 # The Project
 
 I'm so glad and thankful to receive this opportunity to show some of my technical frontend skills with React.
