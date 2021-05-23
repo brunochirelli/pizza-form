@@ -52,9 +52,15 @@ export const fetchProducts = createAsyncThunk("order/fetchProducts", () => {
     .catch((err) => console.error(err));
 });
 
+// Grab the state from a global variable injected into the server-generated HTML
+const preloadedState = window.__PRELOADED_STATE__;
+
+// Allow the passed state to be garbage-collected
+delete window.__PRELOADED_STATE__;
+
 export const orderSlice = createSlice({
   name: "order",
-  initialState,
+  initialState: preloadedState || initialState,
   reducers: {
     /** ORDER */
     addPizza: (
@@ -64,14 +70,16 @@ export const orderSlice = createSlice({
       const { id } = action.payload;
 
       // // needs better typing to avoid undefined
-      const current = state.pizzas?.find((pizza) => pizza.id === parseInt(id));
+      const current = state.pizzas?.find(
+        (pizza: any) => pizza.id === parseInt(id)
+      );
 
       state.order.pizza = current;
     },
 
     addCrust: (state, action: PayloadAction<any>) => {
       const current: any = state.crusts?.find(
-        (crust) => crust.id === parseInt(action.payload)
+        (crust: any) => crust.id === parseInt(action.payload)
       );
 
       state.order.crust = current;
@@ -79,7 +87,7 @@ export const orderSlice = createSlice({
 
     addSize: (state, action: PayloadAction<any>) => {
       const current: any = state.sizes?.find(
-        (size) => size.id === parseInt(action.payload)
+        (size: any) => size.id === parseInt(action.payload)
       );
       state.order.size = current;
     },

@@ -19,6 +19,11 @@ import storage from "redux-persist/lib/storage";
 
 import orderReducer from "../features/order/orderSlice";
 
+// Tell react-snap how to save Redux state
+window.snapSaveState = () => ({
+  __PRELOADED_STATE__: store.getState(),
+});
+
 const persistConfig = {
   key: "root",
   version: 1,

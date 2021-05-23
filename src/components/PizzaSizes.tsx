@@ -6,6 +6,7 @@ import { Container } from "@material-ui/core";
 
 import RadioChoice from "./RadioChoice";
 import StepWrapper from "./StepWrapper";
+import { SizeType } from "../types/app";
 
 /**
  * Pizza Sizes Step
@@ -35,7 +36,7 @@ const PizzaSizes = () => {
     >
       <Container maxWidth="sm">
         <ul>
-          {sizes.map((size) => (
+          {sizes.map((size: SizeType) => (
             <li key={size.name + size.id}>
               <RadioChoice
                 checked={

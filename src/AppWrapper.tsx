@@ -12,6 +12,13 @@ import { theme } from "./theme/theme";
 
 import App from "./App";
 
+/**
+ * AppWrapper
+ *
+ * @version   0.0.1
+ * @component
+ */
+
 const AppWrapper = () => {
   return (
     <React.StrictMode>

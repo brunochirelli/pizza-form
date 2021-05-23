@@ -3,6 +3,7 @@ import React from "react";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addCrust } from "../features/order/orderSlice";
+import { CrustType } from "../types/app";
 import RadioChoice from "./RadioChoice";
 
 import StepWrapper from "./StepWrapper";
@@ -36,7 +37,7 @@ const PizzaCrusts = () => {
     >
       <Container maxWidth="sm">
         <ul>
-          {crusts.map((crust) => (
+          {crusts.map((crust: CrustType) => (
             <li key={crust.name + crust.id}>
               <RadioChoice
                 checked={

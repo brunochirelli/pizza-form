@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { toggleIngredient, toggleExtra } from "../features/order/orderSlice";
 
 import StepWrapper from "./StepWrapper";
+import { Ingredient } from "../types/app";
 
 /**
  * Ingredients Step
@@ -35,7 +36,7 @@ const PizzaIngredients = () => {
     <StepWrapper title="Ingredientes da pizza escolhida">
       <Container maxWidth="sm">
         <ul>
-          {order.pizza?.ingredients.map((ingredient: any) => (
+          {order.pizza?.ingredients.map((ingredient: Ingredient) => (
             <li key={ingredient.id + ingredient.name}>
               <FormControlLabel
                 control={

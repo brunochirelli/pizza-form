@@ -5,7 +5,6 @@ import { useAppDispatch } from "./app/hooks";
 
 import Layout from "./components/Layout";
 import { fetchProducts } from "./features/order/orderSlice";
-import About from "./pages/About";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Order from "./pages/Order";
@@ -15,7 +14,7 @@ import Order from "./pages/Order";
  *
  * Main routing and layout positioning.
  *
- * @version   0.0.2
+ * @version   0.0.3
  * @component
  */
 
@@ -31,7 +30,6 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/pedido" component={Order} />
-          <Route path="/sobre" exact component={About} />
           <Route path="/" exact component={Home} />
           <Route path="*" component={NotFound} />
         </Switch>
