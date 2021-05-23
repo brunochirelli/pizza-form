@@ -1,16 +1,12 @@
 import React from "react";
-import { hydrate, render } from "react-dom";
+import { render } from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 
 import AppWrapper from "./AppWrapper";
 
 const rootElement = document.getElementById("root");
 
-if (rootElement?.hasChildNodes()) {
-  hydrate(<AppWrapper />, rootElement);
-} else {
-  render(<AppWrapper />, rootElement);
-}
+render(<AppWrapper />, rootElement);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

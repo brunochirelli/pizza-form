@@ -38,7 +38,6 @@
     "lint:js": "eslint src/**/*.{js,tsx}",
     "lint": "yarn format && yarn lint:css --fix && yarn lint:js --fix",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
