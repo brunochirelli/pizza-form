@@ -20,12 +20,12 @@ type PizzaIndexProps = {
  */
 
 const PizzaIndex = ({ goToNextStep }: PizzaIndexProps) => {
-  const { pizzas } = useAppSelector((state) => state.order);
+  const { pizzas } = useAppSelector((state) => state.products);
 
   return (
     <>
       <Grid container spacing={2} style={{ marginTop: "1rem" }}>
-        {pizzas.map((pizza: PizzaType) => (
+        {pizzas?.map((pizza: PizzaType) => (
           <Grid item xs={12} sm={6} key={pizza.id}>
             <ProductCard
               id={pizza.id}

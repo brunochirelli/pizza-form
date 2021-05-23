@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { fetchAllProducts } from "../features/products/productsSlice";
+import { useAppSelector } from "../app/hooks";
 
 import { Container, LinearProgress } from "@material-ui/core";
 
@@ -17,12 +16,7 @@ import PizzaIndex from "../components/PizzaIndex";
  */
 
 const Home = () => {
-  const dispatch = useAppDispatch();
   const pizzas = useAppSelector((state) => state.order.pizzas);
-
-  useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, []);
 
   return !pizzas ? (
     <LinearProgress />
