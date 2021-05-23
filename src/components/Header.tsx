@@ -16,7 +16,7 @@ import logo from "../static/images/logo.png";
  */
 
 const Header = () => {
-  const { points } = useAppSelector((state) => state.order.user);
+  const { points } = useAppSelector((state) => state.user.user);
 
   return (
     <StyledHeader>
