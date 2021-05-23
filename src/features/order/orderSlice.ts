@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import fetch from "isomorphic-fetch";
 
 import { CrustType, Ingredient, PizzaType, SizeType } from "../../types/app";
 
@@ -54,7 +53,7 @@ export const fetchProducts = createAsyncThunk("order/fetchProducts", () => {
 
 export const orderSlice = createSlice({
   name: "order",
-  initialState: initialState,
+  initialState,
   reducers: {
     /** ORDER */
     addPizza: (
@@ -63,9 +62,8 @@ export const orderSlice = createSlice({
     ) => {
       const { id } = action.payload;
 
-      // // needs better typing to avoid undefined
       const current = state.pizzas?.find(
-        (pizza: any) => pizza.id === parseInt(id)
+        (pizza: PizzaType) => pizza.id === parseInt(id)
       );
 
       state.order.pizza = current;
@@ -106,11 +104,6 @@ export const orderSlice = createSlice({
       updated.check = !updated.check;
     },
 
-    /** USER */
-    login: (state) => {
-      state.user.name = "Bruno";
-      state.user.email = "bruno@chirelli.com.br";
-    },
     processOrder: (state) => {
       const dayPizzaBonus = state.promotions?.find(
         (promo: any) => promo.name === "dayPizzaBonus"
@@ -119,24 +112,12 @@ export const orderSlice = createSlice({
       if (state.order?.pizza?.featured) {
         state.user.points += dayPizzaBonus?.points;
       }
-
+    },
+    resetOrder: (state) => {
       state.order.pizza = null;
       state.order.crust = null;
       state.order.size = null;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchProducts.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.pizzas = [...action.payload.pizzas];
-        state.crusts = [...action.payload.crusts];
-        state.sizes = [...action.payload.sizes];
-        state.promotions = [...action.payload.promotions];
-      });
   },
 });
 
@@ -146,8 +127,8 @@ export const {
   addSize,
   toggleIngredient,
   toggleExtra,
-  login,
   processOrder,
+  resetOrder,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

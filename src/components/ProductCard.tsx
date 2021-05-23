@@ -75,6 +75,7 @@ const ProductCard = ({
               variant="h6"
               className="pizza-title"
               onClick={() => handleClick(goToNextStep)}
+              tabIndex={0}
             >
               {title}
             </Typography>
