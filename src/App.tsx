@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useAppDispatch } from "./app/hooks";
 
 import Layout from "./components/Layout";
-import { fetchProducts } from "./features/order/orderSlice";
+import { fetchAllProducts } from "./features/products/productsSlice";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Order from "./pages/Order";
@@ -22,7 +22,7 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchAllProducts());
   }, []);
 
   return (
