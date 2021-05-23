@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import fetch from "isomorphic-fetch";
+
 import { CrustType, Ingredient, PizzaType, SizeType } from "../../types/app";
 
 export interface OrderState {
@@ -41,9 +43,11 @@ const initialState: OrderState = {
 };
 
 export const fetchProducts = createAsyncThunk("order/fetchProducts", () => {
-  return fetch(
-    "https://my-json-server.typicode.com/brunochirelli/pizza-api/products"
-  )
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3001/products"
+      : "https://my-json-server.typicode.com/brunochirelli/pizza-api/products";
+  return fetch(url)
     .then((res) => res.json())
     .catch((err) => console.error(err));
 });

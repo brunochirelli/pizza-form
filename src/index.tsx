@@ -1,29 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { CssBaseline } from "@material-ui/core";
-
-import App from "./App";
-import { persistor, store } from "./app/store";
-import { Provider } from "react-redux";
+import { hydrate, render } from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { PersistGate } from "redux-persist/integration/react";
 
-import { ThemeProvider } from "styled-components";
-import { theme } from "./theme/theme";
+import AppWrapper from "./AppWrapper";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const rootElement = document.getElementById("root");
+
+if (rootElement?.hasChildNodes()) {
+  hydrate(<AppWrapper />, rootElement);
+} else {
+  render(<AppWrapper />, rootElement);
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

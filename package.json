@@ -16,6 +16,7 @@
     "@types/react-redux": "^7.1.7",
     "@types/styled-components": "^5.1.9",
     "concurrently": "^6.1.0",
+    "isomorphic-fetch": "^3.0.0",
     "json-server": "^0.16.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -37,6 +38,7 @@
     "lint:js": "eslint src/**/*.{js,tsx}",
     "lint": "yarn format && yarn lint:css --fix && yarn lint:js --fix",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -56,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/isomorphic-fetch": "^0.0.35",
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
@@ -66,6 +69,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "prettier": "^2.3.0",
     "react-app-rewired": "^2.1.8",
+    "react-snap": "^1.23.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^4.1.0",
     "typescript-plugin-styled-components": "^1.5.0"
