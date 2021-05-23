@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { processOrder } from "../features/order/orderSlice";
+import { processOrder, resetOrder } from "../features/order/orderSlice";
 
 import {
   Button,
@@ -13,6 +13,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useHistory } from "react-router";
+import { updatePoints } from "../features/user/userSlice";
+import { IPromotions } from "../types/app";
 
 /**
  * Checkout Page
@@ -27,10 +29,7 @@ import { useHistory } from "react-router";
 const Checkout = () => {
   const history = useHistory();
   const dispatch = useAppDispatch();
-  const {
-    //user,
-    order,
-  } = useAppSelector((state) => state.order);
+  const { order, products } = useAppSelector((state) => state);
 
   const [open, setOpen] = useState(false);
 
@@ -40,8 +39,18 @@ const Checkout = () => {
   // };
 
   const handlePayment = () => {
-    dispatch(processOrder());
+    // get the actual valid promotion
+    const promotion = products.promotions?.find(
+      (promo: IPromotions) => promo.name === "dayPizzaBonus"
+    );
 
+    // extract and verify points
+    const points = order.order.pizza?.featured ? promotion?.points : 0;
+
+    // update points
+    dispatch(updatePoints(points));
+    dispatch(processOrder());
+    dispatch(resetOrder());
     history.push("/");
   };
 
@@ -72,27 +81,30 @@ const Checkout = () => {
                 Resumo do Pedido
               </Typography>
               <div className="details">
-                <img src={order.pizza?.featuredImage} alt={order.pizza?.name} />
+                <img
+                  src={order.order.pizza?.featuredImage}
+                  alt={order.order.pizza?.name}
+                />
                 <div className="item">
                   <Typography variant="h6" component="h2">
-                    Pizza de {order.pizza?.name}
+                    Pizza de {order.order.pizza?.name}
                   </Typography>
-                  <Typography>{order.pizza?.description}</Typography>
+                  <Typography>{order.order.pizza?.description}</Typography>
                 </div>
-                {order.crust && (
+                {order.order.crust && (
                   <div className="item">
                     <Typography variant="h6" component="h2">
-                      Massa {order.crust?.name}
+                      Massa {order.order.crust?.name}
                     </Typography>
-                    <Typography>{order.crust?.description}</Typography>
+                    <Typography>{order.order.crust?.description}</Typography>
                   </div>
                 )}
-                {order.size && (
+                {order.order.size && (
                   <div className="item">
                     <Typography variant="h6" component="h2">
                       Tamanho
                     </Typography>
-                    <Typography>{order.size?.name}</Typography>
+                    <Typography>{order.order.size?.name}</Typography>
                   </div>
                 )}
               </div>

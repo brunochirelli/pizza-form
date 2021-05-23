@@ -18,6 +18,8 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import orderReducer from "../features/order/orderSlice";
+import userReducer from "../features/user/userSlice";
+import productsReducer from "../features/products/productsSlice";
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
@@ -38,6 +40,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   order: orderReducer,
+  user: userReducer,
+  products: productsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

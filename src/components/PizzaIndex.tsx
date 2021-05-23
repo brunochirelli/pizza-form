@@ -12,6 +12,13 @@ type PizzaIndexProps = {
   goToNextStep?: boolean;
 };
 
+/**
+ * Pizzas Index
+ *
+ * @version   0.0.1
+ * @component
+ */
+
 const PizzaIndex = ({ goToNextStep }: PizzaIndexProps) => {
   const { pizzas } = useAppSelector((state) => state.order);
 

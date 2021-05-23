@@ -30,3 +30,9 @@ export interface CrustType {
   name: string;
   description: string;
 }
+
+export interface IPromotions {
+  id: number;
+  name: string;
+  points: number;
+}

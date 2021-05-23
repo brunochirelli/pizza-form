@@ -283,55 +283,37 @@
         "id": 3,
         "name": "Família"
       }
-    ],
-    "users": [
-      {
-        "id": 0,
-        "name": "Bruno",
-        "surname": "Chirelli",
-        "email": "brunochirelli@gmail.com",
-        "points": 0,
-        "orders": [0]
-      }
-    ],
-    "orders": [
-      {
-        "id": 0,
-        "user": 0,
-        "datetime": "",
-        "payment": "credit",
-        "orderDetail": {
-          "products": [
-            {
-              "productName": "Custom",
-              "ingredients": {
-                "dough": "thin",
-                "ingredients": ["Pomarola", "Queijo cheddar", "Borda Catupiry"]
-              },
-              "price": 20,
-              "observation": null
-            }
-          ]
-        }
-      }
-    ],
-    "session": {
-      "user": null,
-      "email": null,
-      "bonus": 0,
-      "order": {
-        "name": "Margherita",
-        "price": 20,
-        "description": "Mussarela, tomate, oregano e manjericão.",
-        "featured": false,
-        "size": "medium",
-        "dough": "thin",
-        "ingredients": [
-          { "name": "mussarela", "choice": true },
-          { "name": "mussarela", "choice": true },
-          { "name": "mussarela", "choice": true }
+    ]
+  },
+  "users": [
+    {
+      "id": 0,
+      "name": "Bruno",
+      "surname": "Chirelli",
+      "email": "brunochirelli@gmail.com",
+      "points": 0,
+      "orders": [0]
+    }
+  ],
+  "orders": [
+    {
+      "id": 0,
+      "user": 0,
+      "datetime": "",
+      "payment": "credit",
+      "orderDetail": {
+        "products": [
+          {
+            "productName": "Custom",
+            "ingredients": {
+              "dough": "thin",
+              "ingredients": ["Pomarola", "Queijo cheddar", "Borda Catupiry"]
+            },
+            "price": 20,
+            "observation": null
+          }
         ]
       }
     }
-  }
+  ]
 }

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button, Container, Typography } from "@material-ui/core";
 import { useAppDispatch } from "../app/hooks";
 import { addPizza } from "../features/order/orderSlice";
+import { numberToCurrency } from "../utils/numberToCurrency";
 
 type FeaturedPizzaProps = {
   id: number;
@@ -42,7 +43,7 @@ const FeaturedPizza = ({ id, title, price }: FeaturedPizzaProps) => {
         <Typography variant="body1" gutterBottom>
           Compre a pizza do dia e acumule pontos para trocar
         </Typography>
-        <Typography variant="h6">R$ {price},00</Typography>
+        <Typography variant="h6">{numberToCurrency(price)}</Typography>
       </div>
 
       <div className="cta">
